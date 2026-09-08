@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@custom-variant dark (&:is(.dark *));
+:root {
+  color-scheme: dark;
+  --background: #0c0f10;
+  --foreground: #eef2ef;
+  --primary: #b8ef72;
+  --primary-foreground: #0c0f10;
+  --muted-foreground: #8a9690;
+  --destructive: #ed8d97;
+  --card: color-mix(in srgb, var(--foreground) 3%, var(--background));
+  --card-foreground: var(--foreground);
+  --popover: #0c0f10;
+  --popover-foreground: var(--foreground);
+  --secondary: color-mix(in srgb, var(--foreground) 8%, var(--background));
+  --secondary-foreground: var(--foreground);
+  --muted: var(--secondary);
+  --accent: var(--secondary);
+  --accent-foreground: var(--foreground);
+  --border: color-mix(in srgb, var(--foreground) 10%, var(--background));
+  --input: var(--border);
+  --ring: var(--primary);
+  --chart-1: var(--primary);
+  --chart-2: var(--destructive);
+  --chart-3: var(--muted-foreground);
+  --chart-4: var(--foreground);
+  --chart-5: var(--primary);
+  --radius: .75rem;
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+@theme inline {
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground font-sans antialiased; font-size: 14px; line-height: 1.5; }
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), select { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  :focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
+}
+@layer components {
+  .panel { @apply rounded-xl border border-border bg-card text-card-foreground; }
+  .eyebrow { @apply text-sm font-medium tracking-widest uppercase text-muted-foreground; }
+  .icon-button { @apply inline-flex size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground; }
+  .action { @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-85 disabled:opacity-40; }
+  .action-secondary { @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-border bg-secondary px-4 text-sm font-medium text-foreground transition-colors hover:border-muted-foreground disabled:opacity-40; }
+  .chip { @apply inline-flex min-h-9 shrink-0 items-center justify-center gap-2 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground; }
+  .chip-active { @apply bg-primary/10 text-primary; }
+  .outcome-yes { @apply flex min-h-10 items-center justify-between rounded-lg border border-primary/15 bg-primary/8 px-3 text-sm font-medium text-primary transition-colors hover:bg-primary/20; }
+  .outcome-no { @apply flex min-h-10 items-center justify-between rounded-lg border border-destructive/15 bg-destructive/8 px-3 text-sm font-medium text-destructive transition-colors hover:bg-destructive/20; }
+  .field-input { @apply min-h-11 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary; }
+  .market-art { background-image: url('/images/markets-atlas.png'); background-size: 300% 200%; }
+  .stat-value { @apply font-mono text-2xl font-medium tracking-tight tabular-nums; }
+  .section-title { @apply text-xl font-semibold tracking-tight text-balance; }
+}
+.hero-grid { background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(to right, transparent, #000); opacity: .32; }
+.market-card { transition: transform .2s ease, border-color .2s ease; }
+.market-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--primary) 35%, var(--border)); }
+.reveal { animation: reveal .55s ease both; }
+@keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+[data-slot='dialog-content'] { max-height: 90dvh; overflow-y: auto; }
+[data-slot='dialog-overlay'] { background: color-mix(in srgb, var(--background) 78%, transparent); backdrop-filter: blur(8px); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media print { aside, header, nav, .no-print { display: none !important; } main { margin: 0 !important; } }
