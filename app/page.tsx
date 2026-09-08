@@ -1,2 +1,5 @@
-import { Discovery } from '@/components/omnimarket/discovery';
-export default function Page() { return <Discovery />; }
+import OmniApp from "./omni-app";
+
+export default function Home() {
+  return <OmniApp />;
+}
