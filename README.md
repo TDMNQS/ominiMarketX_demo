@@ -1,8 +1,6 @@
 # OmniMarketX Next
 
-A production-minded frontend redesign created by **Numan Qureshi** for the OmniMarketX Future Foundry evaluation.
-
-**Live prototype:** [omnimarketx-next-numan.tdmnqs.chatgpt.site](https://omnimarketx-next-numan.tdmnqs.chatgpt.site)
+A production-minded frontend redesign created by **Numan Qureshi** for the OmniMarketX Future Foundry evaluatio
 
 This is not a visual clone. It is a focused product-improvement prototype built from first-hand product testing. The work preserves OmniMarketX’s strongest idea—safe practice prediction trading—while making discovery, order review, position management, and transaction verification easier to understand.
 
