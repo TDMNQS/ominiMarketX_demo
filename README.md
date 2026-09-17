@@ -1,62 +1,62 @@
 # OmniMarketX Next
 
-A production-minded frontend redesign created by **Numan Qureshi** for the OmniMarketX Future Foundry evaluatio
+A production-grade UI/UX rework built by **Numan Qureshi** for the OmniMarketX Future Foundry evaluation.
 
-This is not a visual clone. It is a focused product-improvement prototype built from first-hand product testing. The work preserves OmniMarketX’s strongest idea—safe practice prediction trading—while making discovery, order review, position management, and transaction verification easier to understand.
+This is not a skin-deep copy. It's a targeted product-improvement prototype grounded in hands-on use of the original product. The build keeps OmniMarketX's best idea — low-risk practice prediction trading — while making it simpler to discover markets, review orders, manage positions, and confirm transactions.
 
-> **Evaluation prototype:** all markets, balances, orders, people, and activity are simulated. No real funds are used. This repository is not an official OmniMarketX product or financial advice.
+> **Evaluation build:** every market, balance, order, user, and activity feed is simulated. No real money changes hands. This repo is an independent evaluation project, not an official OmniMarketX release, and nothing here should be read as financial advice.
 
-## Product thesis
+## Design philosophy
 
-Prediction markets ask users to make decisions under uncertainty. The interface should therefore optimize for **clarity, context, and reversible exploration**, not visual noise.
+Prediction markets force decisions under uncertainty, so the interface has to prioritize **clarity, context, and low-risk exploration** over visual flourish.
 
-The redesign uses a compact “market intelligence workspace” model:
+The rework is built around a compact "market intelligence workspace" concept:
 
-- the first screen is a working discovery surface, not a marketing hero;
-- Demo mode and virtual buying power remain continuously visible;
-- probability, movement, volume, and market rules are readable before a trade;
-- the order ticket explains fees and totals before confirmation;
-- Portfolio turns holdings into actions with a direct, prefilled Sell flow;
-- Activity preserves the market, outcome, fee, precision, and full receipt;
-- Social posts stay linked to the market being discussed.
+- discovery is the landing experience, not a marketing banner;
+- Demo mode and virtual buying power stay visible at all times;
+- probability, price movement, volume, and market terms are legible before any trade;
+- the order ticket spells out fees and totals ahead of confirmation;
+- Portfolio turns each holding into a one-click action via a pre-filled Sell flow;
+- Activity logs keep the market, outcome, fee, decimal precision, and full receipt intact;
+- Social posts stay tied to the market they reference.
 
-## The problems I chose to solve
+## Problems addressed
 
-| Product observation | Why it matters | Implemented response |
+| What I noticed | Why it's a problem | How I fixed it |
 | --- | --- | --- |
-| A purchased position was visible in Portfolio, but selling required manually finding the market again. | Extra navigation creates uncertainty and increases the chance of choosing the wrong market or outcome. | Every eligible position has a **Sell position** action. It opens the correct market in Sell mode with the owned outcome and available shares preselected. |
-| The completion receipt was informative, while the visible history table omitted the market name, outcome, and fee. | Returning users could not identify similar transactions from history alone. | Contextual history rows plus a **View receipt** action that retains execution price, exact shares, fee, total, date, and transaction ID. |
-| Raw precision and labels such as “Bought BUY” reduce comprehension. | Financial interfaces need intentional precision and unambiguous language. | Human-readable labels such as **BUY YES**, consistent money formatting, and four-decimal share precision only where useful. |
-| Demo safety framing was strong but fragmented across screens. | First-time users should never wonder whether a real-money action occurred. | Persistent Demo badge, virtual buying power, trade disclaimer, explicit review step, and confirmation receipt. |
-| Market rules were valuable but competed with the trading controls. | Users need the rules without losing the action context. | Structured resolution card with the threshold, exclusions, source, and verified-rules treatment. |
+| A held position showed up in Portfolio, but selling meant hunting down that market again manually. | The extra steps invite confusion and raise the odds of picking the wrong market or outcome. | Every sellable position now has a **Sell position** button that jumps straight into Sell mode with the right outcome and share count already filled in. |
+| The confirmation receipt was detailed, but the history table left out the market name, outcome, and fee. | Without that context, users can't tell transactions apart later just by scanning history. | History rows now carry full context, plus a **View receipt** link that preserves execution price, exact share count, fee, total, date, and transaction ID. |
+| Unrounded numbers and phrasing like "Bought BUY" hurt readability. | Money-related interfaces demand deliberate precision and plain language. | Clear labeling such as **BUY YES**, uniform currency formatting, and four-decimal precision only where it's actually useful. |
+| The demo-safety messaging was solid but scattered across different screens. | New users shouldn't ever have to guess whether a real transaction just happened. | An always-visible Demo badge, virtual buying power, a trade disclaimer, a dedicated review step, and a final confirmation receipt. |
+| Market rules mattered but crowded out the trading controls. | People need the rules on hand without losing sight of the action they're taking. | A dedicated resolution card covering the threshold, exclusions, source, and a verified-rules indicator. |
 
-## Working features
+## What's working
 
-- Responsive market discovery with category filters and three sorting modes
-- Market watchlist and contextual signal rail
-- Keyboard-accessible search (`Ctrl/Cmd + K`)
-- Detailed probability chart, market metadata, and resolution criteria
-- YES/NO demo order ticket with live fee and share calculation
-- Minimum/maximum order validation and insufficient-balance protection
-- Order review dialog and complete transaction receipt
-- Direct Portfolio → Sell workflow with oversell protection and max-share action
-- Context-rich transaction history with reopenable receipts
-- Social feed with market-linked analysis and working post composer
-- Dark and light themes
-- Desktop, tablet, and mobile navigation patterns
-- Reduced-motion support, semantic labels, focus states, and keyboard interaction
+- Responsive market discovery with category filters and three sort options
+- Watchlist plus a contextual signal sidebar
+- Keyboard shortcut search (`Ctrl/Cmd + K`)
+- Full probability chart, market metadata, and resolution criteria
+- YES/NO demo order ticket with real-time fee and share math
+- Min/max order limits and insufficient-balance safeguards
+- Order review modal and a complete transaction receipt
+- One-click Portfolio → Sell path with oversell protection and a max-shares shortcut
+- Transaction history with reopenable, context-rich receipts
+- Social feed tied to specific markets, with a working post composer
+- Light and dark themes
+- Layouts tuned for desktop, tablet, and mobile
+- Reduced-motion support, semantic markup, visible focus states, and full keyboard navigation
 
-## Technical approach
+## Under the hood
 
-- **React 19 + TypeScript** for typed, stateful UI
-- **Vinext / Vite** for a Cloudflare Workers-compatible production build
+- **React 19 + TypeScript** for a typed, stateful UI
+- **Vinext / Vite** for a build that deploys cleanly to Cloudflare Workers
 - **Shadcn primitives** for accessible dialogs and buttons
-- **Pure SVG charts** and CSS-native visuals to avoid unnecessary image weight
-- A framework-independent market engine for quotes, fees, weighted positions, and sell validation
-- Intentional component boundaries around discovery, market detail, trade ticket, Portfolio, Activity, and Social
+- **Pure SVG charts** and CSS-based visuals instead of heavy images
+- A standalone market engine handling quotes, fees, weighted positions, and sell validation
+- Clear component boundaries between discovery, market detail, trade ticket, Portfolio, Activity, and Social
 - No external API keys, trackers, or third-party data dependencies
 
-## Quality checks
+## Running the checks
 
 ```bash
 npm ci
@@ -65,24 +65,24 @@ npm test
 npm run build
 ```
 
-The test suite covers quote precision, fee calculations, trade limits, weighted-average positions, overselling, rendered production HTML, component semantics, and the final build contract. See [docs/TESTING.md](docs/TESTING.md) for the full matrix.
+Tests cover quote precision, fee math, order limits, weighted-average position tracking, oversell handling, rendered production HTML, component semantics, and the final build contract. Full breakdown in [docs/TESTING.md](docs/TESTING.md).
 
-## Review path
+## Suggested review flow
 
-For the fastest product review:
+For the quickest walkthrough:
 
-1. Open **Portfolio** and click **Sell position** on the Ramayana holding.
-2. Review the preselected market, YES outcome, owned shares, estimated proceeds, and fee.
-3. Place the demo order and inspect the complete receipt.
-4. Open **Activity** to see the new transaction with its market context.
-5. Use **View receipt** to verify the full record.
-6. Resize to a phone width to review the reordered trade-first mobile experience.
+1. Go to **Portfolio** and hit **Sell position** on the Ramayana holding.
+2. Check the pre-filled market, YES outcome, share count, estimated proceeds, and fee.
+3. Submit the demo order and review the resulting receipt.
+4. Open **Activity** to confirm the new entry shows full market context.
+5. Click **View receipt** to double-check the complete record.
+6. Shrink the window to phone width to see the trade-first mobile layout.
 
-## Repository scope and rights
+## Scope and rights
 
-This prototype was independently authored for candidate evaluation using publicly visible product behavior and the assignment brief. No private OmniMarketX source code or production data was used. See [LICENSE.md](LICENSE.md) for the evaluation-use notice.
+This prototype was built independently for candidate evaluation, based only on publicly observable product behavior and the assignment brief. No proprietary OmniMarketX source code or production data was involved. See [LICENSE.md](LICENSE.md) for the evaluation-use terms.
 
 ## Author
 
-**Numan Qureshi**  
+**Numan Qureshi**
 Frontend / Full-stack / AI Engineering candidate
