@@ -13,7 +13,7 @@ Prediction markets force decisions under uncertainty, so the interface has to pr
 The rework is built around a compact "market intelligence workspace" concept:
 
 - discovery is the landing experience, not a marketing banner;
-- Demo mode and virtual buying power stay visible at all times; 
+- Demo mode and virtual buying power stay visible at all times;
 - probability, price movement, volume, and market terms are legible before any trade;
 - the order ticket spells out fees and totals ahead of confirmation;
 - Portfolio turns each holding into a one-click action via a pre-filled Sell flow;
