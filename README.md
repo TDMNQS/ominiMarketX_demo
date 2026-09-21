@@ -6,7 +6,7 @@ This is not a skin-deep copy. It's a targeted product-improvement prototype grou
 
 > **Evaluation build:** every market, balance, order, user, and activity feed is simulated. No real money changes hands. This repo is an independent evaluation project, not an official OmniMarketX release, and nothing here should be read as financial advice.
 
-## Design philosophy
+## Design philosophy 
 
 Prediction markets force decisions under uncertainty, so the interface has to prioritize **clarity, context, and low-risk exploration** over visual flourish.
 
